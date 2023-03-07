@@ -1,0 +1,23 @@
+.section{
+    width: 100%;
+    display: inline-block;
+}
+.section-image{
+    width: 20.75em;
+    max-width: 50%;
+    float: left
+}
+.section-image-inverse{
+    width: 20.75em;
+    max-width: 50%;
+    float: right;
+}
+.section-text{
+    font-size: 1.5em;
+    text-align: left;
+    padding-top: 20%;
+}
+.section-text-title{
+    font-weight: bold;
+    text-align: left;
+}
