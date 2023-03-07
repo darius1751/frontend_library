@@ -1,12 +1,12 @@
 .knowMoreForm{
     position: absolute;
-    margin-top: 1.25em;
     text-align: center;
     border: solid black;
     max-width: 15em;
     border-radius: 1.9375em;
-    top: 8.625em;
+    top: 9.675em;
     background-color: #D9D9D970;
+    margin-left: 2em;
 }
 .knowMoreForm > p.title{
     text-align: center;
@@ -25,6 +25,7 @@
     height: 1.75em;
     border: 1px solid black;
     border-radius: 6px;
+    cursor: pointer;
 }
 .knowMoreForm > .input-text::placeholder{
     color:#433e3e
