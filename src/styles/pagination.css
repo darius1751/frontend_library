@@ -1,0 +1,22 @@
+.pagination{
+    text-align: center;
+    margin: 1em 0px;
+}
+.pagination-arrow-previous, .pagination-arrow-next{
+    cursor: pointer;
+    
+}
+.arrow-disable{
+    color: #0000007a;
+    cursor:inherit;
+}
+.actual-page{
+    text-decoration:underline;
+    font-weight: bold;
+}
+.pagination-arrow-previous{
+    margin-right:20%;
+}
+.pagination-arrow-next{
+    margin-left: 20%;
+}

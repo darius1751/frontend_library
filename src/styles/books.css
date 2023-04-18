@@ -1,0 +1,66 @@
+.content{
+    background-color: #354E48;
+}
+.browser-books{
+    margin-top: 5em;
+    text-align: center;
+}
+.browser-books-search{
+    width: 90%;
+    display: inline-block;
+    margin: 0 auto;
+    height: 3em;
+    border: transparent;
+    border-radius: 13px;
+    background-color: aliceblue;
+}
+.list-books{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2em;
+    width: 60%;
+    
+}
+.card-book{
+    width: 10em;
+    height: 20em;
+    border: 2px solid black;
+    border-radius: 0em 0em 0.8125em 0.8125em ;
+    display: inline-block;
+    position: relative; 
+    top: 0px;
+    margin: 0.3125em;
+    background-color: aliceblue;
+}
+.card-book-content{
+    height: 40%;
+}
+.card-book-title{
+    cursor: pointer;
+}
+.card-book-author{
+    text-align: left;
+    padding: 0.4em;
+}
+.card-book-image{
+    max-width: 100%;
+    border: 1px solid black;
+    width: 100%;
+    height: 10em;
+}
+.card-book-categories{
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+@media screen and (max-width: 545px) {
+    .card-book{
+        width: 9em;
+    }
+    
+}
+@media screen  and (max-width: 640px){
+    .list-books{
+        width: 100%;
+    }
+}

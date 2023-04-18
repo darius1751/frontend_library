@@ -10,12 +10,15 @@ import {Link} from 'react-router-dom';
 
 export const Index = () => {
     return (
-        <div>
+        <div className="content">
             <header>
                 <img src={image} alt="book" className="image-index"/>
                 <KnowMoreForm />
-                <Link to={'login'} className='btn-login'>
+                <Link to={'login'} className='btn btn-login'>
                     Ir al Login
+                </Link>
+                <Link to={'books'} className='btn btn-books'>
+                    Buscar Libros
                 </Link>
                 <article className="page">
                     <Section
