@@ -1,6 +1,11 @@
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormEvent } from "react";
+import { NavLink } from "react-router-dom";
 import imageLogin from "../assets/login.jpeg";
+import { Back } from "../components/Back";
 import { useForm } from "../hooks/useForm";
+
 import { Login as LoginModel } from "../models/login";
 import "../styles/login.css";
 const initialLogin: LoginModel = {
@@ -15,12 +20,13 @@ export const Login = () => {
     }
     return (
         <div className="page-login">
+            <Back/>
             <article className="page">
                 <section className="login">
                     <img src={imageLogin} alt="Fondo Login" className="image-login" />
                     <form className="login-form" onSubmit={handleSubmit}>
                         <p>Bienvenido a tu biblioteca virtual de confianza
-                        
+
                         </p>
                         <section className="field-login">
                             <label htmlFor="user">Usuario:</label>
