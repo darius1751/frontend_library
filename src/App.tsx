@@ -10,12 +10,12 @@ function App() {
   return (
     <Provider store={bookStore}>
       <HashRouter>
-        <Routes>
-          <Route path='/' element={<Index/>}/>
-          <Route path='login' element={<Login/>}/>
-          <Route path='books' element={<Books/>}/>
-        </Routes>      
-      </HashRouter>
+          <Routes>
+            <Route path='/' element={<Index/>}/>
+            <Route path='login' element={<Login/>}/>
+            <Route path='books' element={<Books/>}/>
+          </Routes>      
+        </HashRouter>
       </Provider>
   )
 }
