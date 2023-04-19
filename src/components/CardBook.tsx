@@ -7,7 +7,7 @@ export const CardBook = ({ book }:PropsCardBook) => {
     const { code, title, secureURL, description, author, categories } = book;
     return (
         <section className="card-book">
-            <img src={secureURL} alt={title} className='card-book-image'/>
+            <img src={ secureURL } alt={title} className='card-book-image'/>
             <section className="card-book-content">
                 <NavLink className="card-book-title" to={`/book/${code}`}>{title}</NavLink>
                 { 
