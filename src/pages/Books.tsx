@@ -19,14 +19,11 @@ export const Books = () => {
         })();
     }, []);
     return (
-        <div className="content">
             <div className="page">
                 <Back/>
                 <BrowserBooks/>
                 <ListBooks  />
                 <Pagination />
             </div>
-        </div>
-
     )
 }

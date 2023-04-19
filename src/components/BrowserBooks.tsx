@@ -15,7 +15,7 @@ export const BrowserBooks = () => {
         const { value } = e.target as HTMLInputElement;
         dispatch(setSearch(value));
     }
-    useEffect(()=>{
+    useEffect(() => {
         const event = fromEvent($search.current as any, `keyup`)
         .pipe(throttleTime(100))
         .subscribe(async (keyEvent: any) => {
