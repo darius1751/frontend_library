@@ -8,7 +8,7 @@ export const ListBooks = ({ books} :ListBooksProps) => {
    return (
         <article className="list-books">
             {
-                books.map( book => <CardBook book={book} key={book.id}/> )
+                books?.map?.( book => <CardBook book={book} key={book.id}/> )
             }
         </article>
    ) 
