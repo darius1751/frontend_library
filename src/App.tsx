@@ -3,17 +3,20 @@ import './App.css'
 import { Index } from './pages/Index'
 import { Books } from './pages/Books'
 import { Login } from './pages/Login'
-
+import { Provider } from 'react-redux';
+import { bookStore } from './providers/stores/booksStore'
 function App() {
 
   return (
-    <HashRouter>
-      <Routes>
-        <Route path='/' element={<Index/>}/>
-        <Route path='login' element={<Login/>}/>
-        <Route path='books' element={<Books/>}/>
-      </Routes>      
-    </HashRouter>
+    <Provider store={bookStore}>
+      <HashRouter>
+        <Routes>
+          <Route path='/' element={<Index/>}/>
+          <Route path='login' element={<Login/>}/>
+          <Route path='books' element={<Books/>}/>
+        </Routes>      
+      </HashRouter>
+      </Provider>
   )
 }
 
