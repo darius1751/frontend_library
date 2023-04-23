@@ -5,6 +5,7 @@ import { Books } from './pages/Books'
 import { Login } from './pages/Login'
 import { Provider } from 'react-redux';
 import { bookStore } from './providers/stores/booksStore'
+import { Book } from './pages/Book'
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path='/' element={<Index/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='books' element={<Books/>}/>
+            <Route path='book/:code' element={<Book/>}/>
           </Routes>      
         </HashRouter>
       </Provider>

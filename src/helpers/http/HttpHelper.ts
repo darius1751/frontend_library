@@ -1,3 +1,5 @@
+import { HttpException } from "../../models/httpException";
+
 const defaultHeaders = {
     accept:'aplication/json', 
     "content-type":'application/json'
@@ -34,10 +36,7 @@ export const HttpHelper = () => {
             if(ok)
                 resolve(await response.json() as T);
             else
-                reject({
-                    ... await response.json(),
-                    status
-                })
+                reject( await response.json() as HttpException);
         })
     }
     const get = async <T>(url: string, headers: HeadersInit = defaultHeaders): Promise<T> => {
