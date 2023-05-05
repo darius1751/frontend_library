@@ -2,16 +2,18 @@ import { Pagination as PaginationModel} from "../models"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import {useDispatch, useSelector} from 'react-redux';
-import '../styles/pagination.css';
-import { BooksReduxSelector, setBooks, setPagination } from "../providers/slices/booksSlice";
+import { setBooks, setPagination } from "../providers/slices/booksSlice";
 import {  MouseEvent } from "react";
 import { findAllBooks } from "../helpers/findAllBooks";
 import { findFlexBooks } from "../helpers/findFlexBooks";
+import { ReduxSelector } from "../providers/reduxStore";
+import '../styles/pagination.css';
 const TAKE = 10;
 export const Pagination = () => {
-    const [pagination, search] = useSelector<BooksReduxSelector, [PaginationModel, string]>(({books}) => [books.pagination, books.search]);
-    const dispatch = useDispatch();
+    const [pagination, search] = useSelector<ReduxSelector, [PaginationModel, string]>(({booksState}) => [booksState.pagination, booksState.search]);
+    
     const { hasPreviousPage, previousPage, actualPage, hasNextPage } = pagination;
+    const dispatch = useDispatch();
     const handleNext = async (e:MouseEvent) => {
         e.preventDefault();
         if(hasNextPage){

@@ -1,9 +1,9 @@
 import { CardBook } from "./CardBook"
 import {useSelector} from 'react-redux';
-import { Book, Pagination } from "../models";
-import { BooksReduxSelector } from "../providers/slices/booksSlice";
+import { Book } from "../models";
+import { ReduxSelector } from "../providers/reduxStore";
 export const ListBooks = () => {
-   const books = useSelector<BooksReduxSelector, Book[]>((state)=> state.books.books)
+    const books = useSelector<ReduxSelector, Book[]>(({ booksState }) => booksState.books);
     return (
         <article className="list-books">
             {

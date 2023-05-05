@@ -11,19 +11,18 @@ export const initialPagination: Pagination = {
     totalRegisters: 0
 }
 export type BooksReduxSelector = {
-    books:{
-        search: string; 
-        books: Book[]; 
-        pagination: Pagination; 
-    }
+    search: string; 
+    books: Book[]; 
+    pagination: Pagination; 
+}
+export const initialStateBookSlice:BooksReduxSelector = {
+    search: '',
+    books: initialBooks,
+    pagination: initialPagination
 }
 export const booksSlice = createSlice({
-    name:'books',
-    initialState:{
-        search: '',
-        books: initialBooks,
-        pagination: initialPagination
-    }, 
+    name:'booksState',
+    initialState:initialStateBookSlice, 
     reducers:{
         setSearch(state, action){
             state.search = action.payload;
