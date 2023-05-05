@@ -1,7 +1,7 @@
 import { HttpException } from "../../models/httpException";
 
 const defaultHeaders = {
-    accept:'aplication/json', 
+    accept:'application/json', 
     "content-type":'application/json'
 };
 export const HttpHelper = () => {
@@ -21,10 +21,8 @@ export const HttpHelper = () => {
         }
         if(method === 'GET')
             delete requestQuery.body;
-        
         const response = await fetch(url, requestQuery);
-       
-        const { ok, status } = response;
+       const { ok, status } = response;
         setTimeout(
             async () =>{
                 
@@ -43,7 +41,7 @@ export const HttpHelper = () => {
         return await http<T>(url, 'GET', null, headers);
     }
     const post = <T, H>(url: string, body: H, headers: HeadersInit = defaultHeaders): Promise<T> => {
-        return http<T>(url, 'POST', body, headers);
+        return http<T>(url, 'POST', JSON.stringify(body), headers);
     }
     const del = <T>(url: string, headers: HeadersInit): Promise<T> => {
         return http<T>(url, 'DELETE', null, headers);

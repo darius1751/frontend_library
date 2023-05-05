@@ -15,7 +15,7 @@ header{
 .content{
     background-color: red;
 }
-.content > header > .btn{
+header > .btn{
     color: black;
     position: absolute;
     background-color: #D9D9D9;

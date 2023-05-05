@@ -1,12 +1,13 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { Back } from "../components/Back";
 import { BrowserBooks } from "../components/BrowserBooks";
 import { ListBooks } from "../components/ListBooks";
 import { Pagination } from "../components/Pagination";
 import { findAllBooks } from "../helpers/findAllBooks";
-import {  useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setBooks, setPagination } from "../providers/slices/booksSlice";
 import '../styles/books.css';
-import { setBooks, setPagination} from "../providers/slices/booksSlice";
+
 
 export const Books = () => {
     const dispatch = useDispatch();
@@ -19,11 +20,11 @@ export const Books = () => {
         })();
     }, []);
     return (
-            <div className="page">
-                <Back/>
-                <BrowserBooks/>
-                <ListBooks  />
-                <Pagination />
-            </div>
+        <div className="page">
+            <Back />
+            <BrowserBooks />
+            <ListBooks />
+            <Pagination />
+        </div>
     )
 }

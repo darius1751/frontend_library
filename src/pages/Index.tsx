@@ -3,14 +3,14 @@ import image from "../assets/book.jpg";
 import velocidad from "../assets/velocidad.png";
 import variedad from "../assets/variedad.png";
 import comodidad from "../assets/comodidad.png";
-import "../styles/index.css";
 import { Section } from "../components/Section";
 import { Footer } from "../components/Footer";
 import {Link} from 'react-router-dom';
+import "../styles/index.css";
 
 export const Index = () => {
     return (
-        <div className="content">
+        <div>
             <header>
                 <img src={image} alt="book" className="image-index"/>
                 <KnowMoreForm />
