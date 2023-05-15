@@ -6,3 +6,4 @@ export const LOGIN = `${BASE_URL}/free/person/login`;
 export const FIND_ONE_ROLE_BY_ID = `${BASE_URL}/role`
 export const FIND_ALL_AUTHORS = `${BASE_URL}/author`;
 export const CREATE_BOOK = `${BASE_URL}/book`;
+export const FIND_ALL_ROLES = `${BASE_URL}/role`

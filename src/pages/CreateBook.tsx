@@ -7,7 +7,7 @@ export const CreateBook = () => {
     return (
         <div>
             <DashboardNav/>
-            <div className="page">
+            <div className="page dashboard">
             <form onSubmit={handleSubmit} encType={'multipart/form-data'} className='create-book content'>
                 <label htmlFor="frontPage">Portada:</label>
                 <br />

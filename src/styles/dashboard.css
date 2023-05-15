@@ -3,7 +3,9 @@
     background-color: #00ffff;
     padding-left: 2em;
 }
-
+.page.dashboard{
+    margin-top: 2em;
+}
 .dashboard-nav-item{
     text-decoration: none;
     font-size: 1.5em;
@@ -34,6 +36,7 @@
 .dashboard-nav-list > .dashboard-nav-item{
     display: block;
     text-align: center;
+    margin:0.625em; 
 }
 .dashboard-nav-list > .dashboard-nav-item > a{
     text-decoration: none;
@@ -49,15 +52,39 @@
 /* .close-sesion{
     
 } */
-
+.field{
+    display: inline-block;
+    margin: 0.5em;
+}
+.field > label{
+    font-weight: bold;
+}
+fieldset > legend {
+    font-weight: bold;
+    color: wheat;
+}
+.field > .input{
+    height: 2em;
+    width: 20em;
+    border-radius: 0.4em;
+    border: 1px solid black;
+}
 @media screen and (max-width: 903px) {
-    .dashboard-nav{
-        width: 10em;
-        position: absolute;
-        top: 0;
-    }
     .dashboard-nav-item{
-        /* background-color: red; implement other dashboard*/
+        font-size: 0.8em;
+        width: 5em;
+    }
+    .dashboard-nav-list > .dashboard-nav-item{
+        font-size: 1.5em;
+        width: 10em;    
+        margin: 7px;
         
     }
+    .dashboard-nav-list{
+        width: 20em;
+    }
+    
+}
+@media screen and (max-width: 675px){
+    
 }
