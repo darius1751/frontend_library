@@ -10,12 +10,12 @@ export const initialPagination: Pagination = {
     previousPage: 0,
     totalRegisters: 0
 }
-export type BooksReduxSelector = {
+export type BooksReduxState = {
     search: string; 
     books: Book[]; 
     pagination: Pagination; 
 }
-export const initialStateBookSlice:BooksReduxSelector = {
+export const initialStateBookSlice:BooksReduxState = {
     search: '',
     books: initialBooks,
     pagination: initialPagination

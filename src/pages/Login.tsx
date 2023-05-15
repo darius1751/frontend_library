@@ -3,7 +3,7 @@ import imageLogin from "../assets/login.jpeg";
 import { Back } from "../components/Back";
 import { useForm } from "../hooks/useForm";
 import { Login as LoginModel } from "../models";
-import { httpLogin } from "../helpers/httpLogin";
+import { httpLogin } from "../helpers/http/httpLogin";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {login as setLogin} from '../providers/slices/personSlice';

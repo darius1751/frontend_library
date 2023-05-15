@@ -1,6 +1,6 @@
-import { FIND_ALL_BOOKS } from "../constants/URLS"
-import { Book, Pagination } from "../models"
-import { http } from "./http/http"
+import { FIND_ALL_BOOKS } from "../../constants/URLS"
+import { Book, Pagination } from "../../models"
+import { http } from "./http"
 export type BookPagination = {
     books: Book[],
     pagination: Pagination

@@ -1,0 +1,31 @@
+.create-book{
+    text-align: center;
+}
+.create-book > label{
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+}
+.create-book_input{
+    width: 50%;
+    height: 1.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    border-radius: 0.375em;
+    border:0.125em solid #000000;
+}
+.create-book-image{
+    max-width: 100%;
+    width: 30em;
+    height: 15em;
+    border: 2px solid red;
+}
+.btn{
+    cursor: pointer;
+    margin:1.125em;
+    height: 2.5em;
+    border-radius: 0.375em;
+    border:0.125em solid #000000;
+    box-shadow: 4px 3px 6px 0px #000000;
+}

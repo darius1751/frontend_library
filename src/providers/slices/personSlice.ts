@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { Person } from "../../models";
-export type PersonReduxSelector = {
+export type PersonReduxState = {
     token: string, 
     person: Person
 }
-const initialPersonSlice: PersonReduxSelector = {
+export const initialPersonSlice: PersonReduxState = {
     token:'', 
     person: {
         id:'',
@@ -31,11 +31,15 @@ export const personSlice = createSlice({
     name:'personState',
     initialState: initialPersonSlice,
     reducers:{
-        login(state, {payload}: { payload: PersonReduxSelector }){
+        login(state, {payload}: { payload: PersonReduxState }){
             state.person = payload.person;
             state.token = payload.token;
+        },
+        logout(state){
+            state.person = initialPersonSlice.person;
+            state.token = initialPersonSlice.token;
         }
     }
 });
-export const { login } = personSlice.actions;
+export const { login, logout } = personSlice.actions;
 export default personSlice.reducer;

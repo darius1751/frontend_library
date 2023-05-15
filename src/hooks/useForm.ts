@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 
 
-export const useForm = <T>(initialState: T):[T, (e: ChangeEvent<HTMLInputElement>) => void] => {
+export const useForm = <T>(initialState: T):[T, (e: ChangeEvent<HTMLInputElement>) => void,  React.Dispatch<React.SetStateAction<T>>] => {
     const [state, setState] = useState<T>(initialState);
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setState({
@@ -11,6 +11,7 @@ export const useForm = <T>(initialState: T):[T, (e: ChangeEvent<HTMLInputElement
     }
     return [
         state,
-        handleChange
+        handleChange,
+        setState
     ];
 }

@@ -3,7 +3,7 @@ import { Back } from "../components/Back";
 import { BrowserBooks } from "../components/BrowserBooks";
 import { ListBooks } from "../components/ListBooks";
 import { Pagination } from "../components/Pagination";
-import { findAllBooks } from "../helpers/findAllBooks";
+import { findAllBooks } from "../helpers/http/findAllBooks";
 import { useDispatch } from 'react-redux';
 import { setBooks, setPagination } from "../providers/slices/booksSlice";
 import '../styles/books.css';

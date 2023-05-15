@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { Back } from "../components/Back";
-import { findBookByCode } from "../helpers/findBookByCode";
+import { findBookByCode } from "../helpers/http/findBookByCode";
 import { Book as BookModel} from "../models"
 import '../styles/book.css';
 

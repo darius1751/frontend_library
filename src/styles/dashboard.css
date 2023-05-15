@@ -1,3 +1,63 @@
 .dashboard-nav{
+    max-width: 100%;
+    background-color: #00ffff;
+    padding-left: 2em;
+}
+
+.dashboard-nav-item{
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #0b497b;
+    border: 3px solid #2cd4d455;
+    background-color:#2cd4d455;
+    display: inline-block;
+    padding: 5px;
+    margin: 0.2em 0.615em;
+    cursor: pointer;
+    user-select: none;
+}
+.dashboard-nav-item > label{
+    cursor: pointer;
+}
+.dashboard-nav-items{
+    display: inline-block;
+}
+.dashboard-nav-list{
+    z-index: 2;
+    font-size: 0.5em;
+    background-color: #00FFFF;
+    position: absolute;
+    margin-top: 0.3em;
+    margin-right: 0.2em;
+    width: 10em;
+}
+.dashboard-nav-list > .dashboard-nav-item{
+    display: block;
+    text-align: center;
+}
+.dashboard-nav-list > .dashboard-nav-item > a{
+    text-decoration: none;
+    display: inline-block;
+    color: #0b497b;
+}
+.visible{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+/* .close-sesion{
     
+} */
+
+@media screen and (max-width: 903px) {
+    .dashboard-nav{
+        width: 10em;
+        position: absolute;
+        top: 0;
+    }
+    .dashboard-nav-item{
+        /* background-color: red; implement other dashboard*/
+        
+    }
 }

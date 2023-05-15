@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useRef } from "react";
 import { fromEvent, throttleTime } from "rxjs";
-import { findAllBooks } from "../helpers/findAllBooks";
-import { findFlexBooks } from "../helpers/findFlexBooks";
+import { findAllBooks } from "../helpers/http/findAllBooks";
+import { findFlexBooks } from "../helpers/http/findFlexBooks";
 import { useDispatch, useSelector } from 'react-redux';
 import { setBooks, setPagination, setSearch } from "../providers/slices/booksSlice";
 import { ReduxSelector } from "../providers/reduxStore";
