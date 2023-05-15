@@ -6,7 +6,7 @@ const defaultHeaders = {
 };
 export const HttpHelper = () => {
     
-    const http = async <T>(url: string, method: ('GET'|'POST'|'PATCH'|'DELETE'), body:any = null, headers: HeadersInit ):Promise<T> => {
+    const http = async <T>(url: string, method: ('GET'|'POST'|'PATCH'|'DELETE'), body:any = null, headers: Record<string, string> ):Promise<T> => {
         headers = {
             ...defaultHeaders,
             ...headers
@@ -21,11 +21,16 @@ export const HttpHelper = () => {
         }
         if(method === 'GET')
             delete requestQuery.body;
+        else if(headers['content-type'].toLowerCase() === 'application/json')
+            requestQuery.body = JSON.stringify(body);
+        else if(headers['content-type'].toLowerCase() === 'multipart/form-data'){
+            delete requestQuery.headers['content-type'];
+        }
+        
         const response = await fetch(url, requestQuery);
-       const { ok, status } = response;
+        const { ok } = response;
         setTimeout(
             async () =>{
-                
                 abortController.abort();
             },
             3000
@@ -37,16 +42,16 @@ export const HttpHelper = () => {
                 reject( await response.json() as HttpException);
         })
     }
-    const get = async <T>(url: string, headers: HeadersInit = defaultHeaders): Promise<T> => {
+    const get = async <T>(url: string, headers: Record<string,string> = defaultHeaders): Promise<T> => {
         return await http<T>(url, 'GET', null, headers);
     }
-    const post = <T, H>(url: string, body: H, headers: HeadersInit = defaultHeaders): Promise<T> => {
-        return http<T>(url, 'POST', JSON.stringify(body), headers);
+    const post = <T, H>(url: string, body: H, headers: Record<string,string> = defaultHeaders): Promise<T> => {
+        return http<T>(url, 'POST', body, headers);
     }
-    const del = <T>(url: string, headers: HeadersInit): Promise<T> => {
+    const del = <T>(url: string, headers: Record<string,string>): Promise<T> => {
         return http<T>(url, 'DELETE', null, headers);
     }
-    const patch = <T, H>(url: string, body:H, headers: HeadersInit = defaultHeaders): Promise<T> => {
+    const patch = <T, H>(url: string, body:H, headers: Record<string,string> = defaultHeaders): Promise<T> => {
         return http<T>(url, 'PATCH', body, headers);
     }
     return {

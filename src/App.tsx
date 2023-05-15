@@ -6,9 +6,9 @@ import { Provider } from 'react-redux';
 import { reduxStores } from './providers/reduxStore'
 import { Book } from './pages/Book'
 import { Dashboard } from './pages/Dashboard'
+import { CreateBook } from './pages/CreateBook';
 import './App.css'
-function App() {
-
+export const App = () => {
   return (
     
       <Provider store={reduxStores}>
@@ -18,11 +18,14 @@ function App() {
               <Route path='login' element={<Login/>}/>
               <Route path='books' element={<Books/>}/>
               <Route path='book/:code' element={<Book/>}/>
-              <Route path='dashboard' element={<Dashboard/>}/>
+              <Route path='dashboard'>
+                <Route path='' element={<Dashboard/>}/>
+                <Route path='create-book' element={<CreateBook/>}/>
+              </Route>
+              
           </Routes>      
         </HashRouter>
     </Provider>
   )
 }
 
-export default App

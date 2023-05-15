@@ -1,9 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
-import booksReducer, { BooksReduxSelector } from './slices/booksSlice';
-import personReducer, { PersonReduxSelector } from './slices/personSlice';
+import booksReducer, { BooksReduxState } from './slices/booksSlice';
+import personReducer, { PersonReduxState } from './slices/personSlice';
 export type ReduxSelector = {
-    personState: PersonReduxSelector,
-    booksState: BooksReduxSelector
+    personState: PersonReduxState,
+    booksState: BooksReduxState
 }
 export const reduxStores =  configureStore({
     reducer:{
