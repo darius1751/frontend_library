@@ -8,6 +8,7 @@ import { Book } from './pages/Book'
 import { Dashboard } from './pages/Dashboard'
 import { CreateBook } from './pages/CreateBook';
 import './App.css'
+import { CreateUser } from './pages/CreateUser';
 export const App = () => {
   return (
     
@@ -21,6 +22,7 @@ export const App = () => {
               <Route path='dashboard'>
                 <Route path='' element={<Dashboard/>}/>
                 <Route path='create-book' element={<CreateBook/>}/>
+                <Route path='create-user' element={<CreateUser/>}/>
               </Route>
               
           </Routes>      

@@ -7,6 +7,7 @@ import { Author } from "../models";
 import { ReduxSelector } from "../providers/reduxStore";
 import { PersonReduxState } from "../providers/slices/personSlice";
 import { useForm } from "./useForm";
+import { useGuard } from "./useGuard";
 const initialCreateBook = {
     code: '',
     title: '',
@@ -16,24 +17,21 @@ const initialCreateBook = {
 export const useCreateBook = () => {
     const { token } = useSelector<ReduxSelector, PersonReduxState>(({ personState }) => personState);
     const [authors, setAuthors] = useState<Author[]>([]);
-    const [author, setAuthor] = useState<string>("");
     const [frontPage, setFrontPage] = useState<string>("");
     const [createBook, handleChange, setCreateBook] = useForm(initialCreateBook);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    useGuard("Bibliotecario","Administrador");
     const listAuthors = useRef<HTMLDataListElement>(null);
     useEffect(() => {
-
         (
             async () => {
                 try {
                     setAuthors(await findAllAuthors(token));
                 } catch (exception) {
-                    navigate('/login');
-                    return;
+                    console.log({exception});
+                    
                 }
             })();
-
-
     }, []);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -45,13 +43,13 @@ export const useCreateBook = () => {
             let authorId = undefined;
             if (files)
                 formData.append('frontPage', files[0])
-            for(const data of listAuthors.current!.children){
-                if(author === (data as HTMLOptionElement).value){
+            for (const data of listAuthors.current!.children) {
+                if (author === (data as HTMLOptionElement).value) {
                     authorId = data.innerHTML;
                     break;
-                }                    
+                }
             }
-            if(authorId)
+            if (authorId)
                 formData.append('authorId', authorId);
             else
                 throw new Error("Por favor seleccionar un author de la lista");
@@ -84,13 +82,13 @@ export const useCreateBook = () => {
         setFrontPage("");
         setCreateBook(initialCreateBook);
     }
-    return { 
-        handleSubmit, 
-        handleLoad, 
-        handleChange, 
+    return {
+        handleSubmit,
+        handleLoad,
+        handleChange,
         handleReset,
-        createBook, 
-        authors, 
+        createBook,
+        authors,
         frontPage,
         listAuthors
     }
