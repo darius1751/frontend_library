@@ -1,9 +1,10 @@
 import { ChangeEvent, FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { addCategories } from "../helpers/http/addCategories";
 import { findAllAuthors } from "../helpers/http/findAllAuthors";
+import { findAllCategories } from "../helpers/http/findAllCategories";
 import { httpCreateBook } from "../helpers/http/httpCreateBook";
-import { Author } from "../models";
+import { Author, Category } from "../models";
 import { ReduxSelector } from "../providers/reduxStore";
 import { PersonReduxState } from "../providers/slices/personSlice";
 import { useForm } from "./useForm";
@@ -12,14 +13,16 @@ const initialCreateBook = {
     code: '',
     title: '',
     publicationDate: '',
-    author: ''
+    author: '',
+    description: '',
 }
 export const useCreateBook = () => {
     const { token } = useSelector<ReduxSelector, PersonReduxState>(({ personState }) => personState);
     const [authors, setAuthors] = useState<Author[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
     const [frontPage, setFrontPage] = useState<string>("");
     const [createBook, handleChange, setCreateBook] = useForm(initialCreateBook);
-    // const navigate = useNavigate();
+    const [categoriesSelected, setCategoriesSelected] = useState<string[]>([]);
     useGuard("Bibliotecario","Administrador");
     const listAuthors = useRef<HTMLDataListElement>(null);
     useEffect(() => {
@@ -27,9 +30,9 @@ export const useCreateBook = () => {
             async () => {
                 try {
                     setAuthors(await findAllAuthors(token));
+                    setCategories(await findAllCategories(token))
                 } catch (exception) {
                     console.log({exception});
-                    
                 }
             })();
     }, []);
@@ -38,7 +41,8 @@ export const useCreateBook = () => {
         try {
             e.preventDefault();
             const formData = new FormData();
-            const { code, publicationDate, title, author } = createBook;
+            const { code, publicationDate, title, author, description } = createBook;
+
             const { files } = (e.target as HTMLFormElement)[0] as HTMLInputElement;
             let authorId = undefined;
             if (files)
@@ -56,7 +60,11 @@ export const useCreateBook = () => {
             formData.append('code', code);
             formData.append('publicationDate', publicationDate);
             formData.append('title', title);
-            console.log(await httpCreateBook(formData, token));
+            formData.append('description', description);
+            const newBook = await httpCreateBook(formData, token);
+            const bookAndCategories = await addCategories(newBook.id, categoriesSelected,token);
+            console.log({bookAndCategories})
+            
         } catch (exception) {
             console.log({ exception });
         }
@@ -87,8 +95,11 @@ export const useCreateBook = () => {
         handleLoad,
         handleChange,
         handleReset,
+        setCategoriesSelected,
         createBook,
         authors,
+        categoriesSelected,        
+        categories,
         frontPage,
         listAuthors
     }
