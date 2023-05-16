@@ -64,9 +64,9 @@ export const CreateUser = () => {
                         <fieldset>
                             <legend>Credentiales:</legend>
                             <section className="field">
-                                <label htmlFor="address">Usuario:</label>
+                                <label htmlFor="user">Usuario:</label>
                                 <br />
-                                <input type="text" name='address' id="address" className='input' />
+                                <input type="text" name='user' id="user" className='input' />
                             </section>
                             <section className="field">
                                 <label htmlFor="password">Contrase&ntilde;a</label>

@@ -7,3 +7,5 @@ export const FIND_ONE_ROLE_BY_ID = `${BASE_URL}/role`
 export const FIND_ALL_AUTHORS = `${BASE_URL}/author`;
 export const CREATE_BOOK = `${BASE_URL}/book`;
 export const FIND_ALL_ROLES = `${BASE_URL}/role`
+export const FIND_ALL_CATEGORIES = `${BASE_URL}/category`;
+export const ADD_CATEGORY_IN_BOOK = `${BASE_URL}/book/`

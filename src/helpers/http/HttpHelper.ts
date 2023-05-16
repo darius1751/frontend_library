@@ -26,7 +26,6 @@ export const HttpHelper = () => {
         else if(headers['content-type'].toLowerCase() === 'multipart/form-data'){
             delete requestQuery.headers['content-type'];
         }
-        
         const response = await fetch(url, requestQuery);
         const { ok } = response;
         setTimeout(
